@@ -21,7 +21,7 @@ const bfs = function (pairs, source, target) {
   const visited = [];
   const queue = [source];
   while (queue.length) {
-    const current = queue.pop();
+    const current = queue.shift();
     visited.push(current);
     if (current == target) {
       return true;
