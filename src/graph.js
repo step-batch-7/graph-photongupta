@@ -23,7 +23,7 @@ const bfs = function (pairs, source, target) {
   while (queue.length) {
     const current = queue.shift();
     visited.push(current);
-    if (current == target) {
+    if (paths[current].includes(target)) {
       return true;
     }
     paths[current].forEach((e) => {
