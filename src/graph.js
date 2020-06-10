@@ -23,10 +23,11 @@ const bfs = function (pairs, source, target) {
   while (queue.length) {
     const current = queue.shift();
     visited.push(current);
-    if (paths[current].includes(target)) {
+    const adjacent = paths[current] || [];
+    if (adjacent.includes(target)) {
       return true;
     }
-    paths[current].forEach((e) => {
+    adjacent.forEach((e) => {
       if (!visited.includes(e) && !queue.includes(e)) {
         queue.push(e);
       }
