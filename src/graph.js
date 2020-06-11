@@ -18,18 +18,18 @@ const parse = function (pairs) {
 
 const bfs = function (pairs, source, target) {
   const paths = parse(pairs);
-  const visited = [];
+  const visited = new Set();
   let queue = paths[source] || [];
 
   while (queue.length) {
     const current = queue.shift();
-    visited.push(current);
+    visited.add(current);
     if (current == target) {
       return true;
     }
     Object.keys(paths).includes(current) &&
       paths[current].forEach((e) => {
-        if (!visited.includes(e) && !queue.includes(e)) {
+        if (!visited.has(e) && !queue.includes(e)) {
           queue.push(e);
         }
       });
