@@ -19,10 +19,8 @@ const parse = function (pairs) {
 const bfs = function (pairs, source, target) {
   const paths = parse(pairs);
   const visited = [];
-  let queue = [source];
-  if (source == target) {
-    queue = paths[source];
-  }
+  let queue = paths[source] || [];
+
   while (queue.length) {
     const current = queue.shift();
     visited.push(current);
