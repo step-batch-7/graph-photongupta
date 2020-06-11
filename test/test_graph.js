@@ -36,4 +36,12 @@ describe('#BFS', function () {
     ];
     assert.ok(!bfs(pairs, 'a', 'a'));
   });
+
+  it('should validate if the direct path exists to target', function () {
+    const pairs = [
+      ['a', 'b'],
+      ['a', 'c'],
+    ];
+    assert.ok(bfs(pairs, 'a', 'b'));
+  });
 });
