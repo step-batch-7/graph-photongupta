@@ -19,6 +19,7 @@ describe('#BFS', function () {
     ];
     assert.ok(!bfs(pairs, 'a', 'd'));
   });
+
   it('should validate if the path exits to itself', function () {
     const pairs = [
       ['a', 'b'],

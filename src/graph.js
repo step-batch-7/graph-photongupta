@@ -19,19 +19,22 @@ const parse = function (pairs) {
 const bfs = function (pairs, source, target) {
   const paths = parse(pairs);
   const visited = [];
-  const queue = [source];
+  let queue = [source];
+  if (source == target) {
+    queue = paths[source];
+  }
   while (queue.length) {
     const current = queue.shift();
     visited.push(current);
-    const adjacent = paths[current] || [];
-    if (adjacent.includes(target)) {
+    if (current == target) {
       return true;
     }
-    adjacent.forEach((e) => {
-      if (!visited.includes(e) && !queue.includes(e)) {
-        queue.push(e);
-      }
-    });
+    Object.keys(paths).includes(current) &&
+      paths[current].forEach((e) => {
+        if (!visited.includes(e) && !queue.includes(e)) {
+          queue.push(e);
+        }
+      });
   }
   return false;
 };
